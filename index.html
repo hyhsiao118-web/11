@@ -73,22 +73,21 @@
             id: 1,
             date: '2/8 (六)',
             weather: 'sunny',
-            temperature: '-1°C - 7°C',
+            temperature: '3°C - 10°C',
             transport: 'CI156 / 利木津巴士',
             ticketType: 'Ticket',
-            accommodation: '素居旅舍',
+            accommodation: '素居旅舍 (Guesthouse Soi)',
             schedule: [
               { id: 1, time: '05:00', activity: '派車接送 (前往機場)', link: '' },
-              { id: 2, time: '08:05', activity: '桃園機場起飛 (CI156)', link: '' },
-              { id: 3, time: '11:35', activity: '抵達關西機場 T1 (1樓大廳C出口)', link: '' },
-              { id: 4, time: '13:00', activity: '利木津巴士往京都車站', link: '' },
-              { id: 5, time: '14:30', activity: '京都車站用餐 (拉麵小路)', link: '' },
-              { id: 6, time: '15:00', activity: '飯店 Check-in / 放行李', link: 'https://guesthousesoi.com/what-we-provide-tw/' },
-              { id: 7, time: '16:00', activity: '清水寺周邊/飯店附近散步', link: '' }
+              { id: 2, time: '08:05-11:35', activity: 'CI156 起飛 (T2) -> 抵達 關西 T1', link: '' },
+              { id: 3, time: '13:00', activity: '利木津巴士往京都車站 (約1.5hr)', link: '' },
+              { id: 4, time: '14:30', activity: '京都車站用餐', link: '' },
+              { id: 5, time: '15:00', activity: '飯店 Check-in / 放行李', link: 'https://guesthousesoi.com/what-we-provide-tw/' },
+              { id: 6, time: '16:00', activity: '清水寺周邊/飯店附近散步', link: '' }
             ],
-            shopping: [{ id: 1, name: 'Porta 地下街雜貨', location: '流行服飾與藥妝' }],
-            food: { wishlist: [], breakfast: '', lunch: '京都車站', dinner: '飯店附近' },
-            notes: '抵達 T1 1樓大廳後，從 C 出口走出去搭巴士最快。素居旅舍距離清水寺步行約 10 分鐘。'
+            shopping: [],
+            food: { wishlist: [], breakfast: '', lunch: '京都車站內', dinner: '飯店附近' },
+            notes: '抵達 T1 1樓大廳後，從 C 出口搭利木津巴士最快。素居旅舍距離清水寺步行約 10 分鐘。'
           },
           {
             id: 2,
@@ -97,7 +96,7 @@
             temperature: '2°C - 9°C',
             transport: '京阪電車 / 近鐵',
             ticketType: 'IC Card',
-            accommodation: '素居旅舍',
+            accommodation: '素居旅舍 (Guesthouse Soi)',
             schedule: [
               { id: 1, time: '09:00', activity: '前往伏見桃山 (酒藏+老街)', link: '' },
               { id: 2, time: '09:30', activity: '伏見十石舟 (搭船或河岸散步)', link: '' },
@@ -110,11 +109,112 @@
             food: { wishlist: [{ id: 1, name: '抹茶甜點', checked: false }], breakfast: '', lunch: '伏見桃山', dinner: '京都' },
             notes: '伏見到宇治很近，京阪電車轉一次車約20分鐘。'
           },
-          {id: 3, date: '2/10 (一)', weather: 'cloudy', temperature: '4°C - 11°C', transport: 'E-bike', ticketType: 'Ticket', accommodation: '素居旅舍', schedule: [], shopping: [], food: { wishlist: [], breakfast: '', lunch: '', dinner: '' }, notes: '老街、神社內禁止騎行，需牽車。'},
-          {id: 4, date: '2/11 (二)', weather: 'sunny', temperature: '1°C - 8°C', transport: '租車自駕', ticketType: 'Ticket', accommodation: '美山周邊', schedule: [], shopping: [], food: { wishlist: [], breakfast: '', lunch: '', dinner: '' }, notes: '建明租車 TEL:03-577-0858。'},
-          {id: 5, date: '2/12 (三)', weather: 'sunny', temperature: '3°C - 9°C', transport: '自駕 / JR', ticketType: 'IC Card', accommodation: '大阪市區', schedule: [], shopping: [], food: { wishlist: [], breakfast: '', lunch: '', dinner: '' }, notes: '今日還車，檢查隨身物品。'},
-          {id: 6, date: '2/13 (四)', weather: 'sunny', temperature: '4°C - 12°C', transport: '新幹線 / JR', ticketType: 'Ticket', accommodation: '大阪市區', schedule: [], shopping: [], food: { wishlist: [], breakfast: '', lunch: '', dinner: '' }, notes: '推薦買姬路城+好古園聯票。'},
-          {id: 7, date: '2/14 (五)', weather: 'sunny', temperature: '5°C - 13°C', transport: '南海電鐵', ticketType: 'Ticket', accommodation: '溫暖的家', schedule: [], shopping: [], food: { wishlist: [], breakfast: '', lunch: '', dinner: '' }, notes: '前往關西機場報到。'}
+          {
+            id: 3,
+            date: '2/10 (一)',
+            weather: 'cloudy',
+            temperature: '4°C - 11°C',
+            transport: 'E-bike / 步行',
+            ticketType: 'Ticket',
+            accommodation: '素居旅舍 (Guesthouse Soi)',
+            schedule: [
+              { id: 1, time: '09:30', activity: '清水寺附近取 E-Bike (調整座椅確認電量)', link: '' },
+              { id: 2, time: '09:45-10:15', activity: '高台寺周邊 (慢騎+步行)', link: '' },
+              { id: 3, time: '10:30-11:00', activity: '八坂神社 (騎車/停車休息)', link: '' },
+              { id: 4, time: '11:15-12:45', activity: '祇園/河原町午餐 (坐著吃不趕行程)', link: '' },
+              { id: 5, time: '13:00-14:30', activity: '鴨川河岸騎行 (平坦舒服)', link: '' },
+              { id: 6, time: '14:45-15:30', activity: '下鴨神社 (選)', link: '' },
+              { id: 7, time: '15:45-16:30', activity: '京都御苑 (選/大草地放鬆)', link: '' },
+              { id: 8, time: '16:45-17:30', activity: '河原町咖啡/甜點補體力', link: '' },
+              { id: 9, time: '17:30-18:30', activity: '晚餐 (吃完就還車)', link: '' },
+              { id: 10, time: '18:30', activity: '河原町還車 (不夜騎)', link: '' }
+            ],
+            shopping: [],
+            food: { wishlist: [], breakfast: '', lunch: '祇園/河原町', dinner: '河原町' },
+            notes: '⚠️老街、神社內禁止騎行，需牽車。腳踏車請停指定停車場。備案：若下雪或不騎車，改走清水寺→祇園→金閣寺→龍安寺路線。'
+          },
+          {
+            id: 4,
+            date: '2/11 (二)',
+            weather: 'sunny',
+            temperature: '1°C - 8°C',
+            transport: '租車自駕 (建明租車)',
+            ticketType: 'Ticket',
+            accommodation: '美山周邊',
+            schedule: [
+              { id: 1, time: '08:30', activity: '前往租車地取車', link: '' },
+              { id: 2, time: '09:00', activity: '出發前往美山', link: '' },
+              { id: 3, time: '11:00', activity: '美山茅草屋之里觀光', link: '' },
+              { id: 4, time: '12:30', activity: '美山午餐', link: '' },
+              { id: 5, time: '14:00', activity: '美山周邊漫遊/Check-in', link: '' }
+            ],
+            shopping: [],
+            food: { wishlist: [], breakfast: '', lunch: '美山', dinner: '美山' },
+            notes: '建明租車 TEL:03-577-0858。'
+          },
+          {
+            id: 5,
+            date: '2/12 (三)',
+            weather: 'sunny',
+            temperature: '3°C - 9°C',
+            transport: '自駕 / JR',
+            ticketType: 'IC Card',
+            accommodation: '大阪市區',
+            schedule: [
+              { id: 1, time: '10:00', activity: '美山出發回程', link: '' },
+              { id: 2, time: '12:00', activity: '嵐山觀光/午餐', link: '' },
+              { id: 3, time: '15:00', activity: '嵐山周邊/往市區移動', link: '' },
+              { id: 4, time: '17:00', activity: '傍晚歸還租車', link: '' },
+              { id: 5, time: '18:00', activity: '往大阪住宿移動', link: '' },
+              { id: 6, time: '19:30', activity: '大阪晚餐', link: '' }
+            ],
+            shopping: [],
+            food: { wishlist: [], breakfast: '', lunch: '嵐山', dinner: '大阪' },
+            notes: '今日還車，記得檢查隨身物品。'
+          },
+          {
+            id: 6,
+            date: '2/13 (四)',
+            weather: 'sunny',
+            temperature: '4°C - 12°C',
+            transport: '新幹線 / JR神戶線',
+            ticketType: 'Ticket',
+            accommodation: '大阪市區',
+            schedule: [
+              { id: 1, time: '07:30-08:00', activity: '從大阪出發 (建議搭新幹線)', link: '' },
+              { id: 2, time: '08:45', activity: '抵達姬路站', link: '' },
+              { id: 3, time: '09:00-09:20', activity: '前往姬路城 (步行15分/巴士5分)', link: '' },
+              { id: 4, time: '09:30-11:30', activity: '參觀姬路城主塔及城內區域', link: '' },
+              { id: 5, time: '11:30-12:30', activity: '午餐 (姬路關東煮/穴子丼)', link: '' },
+              { id: 6, time: '12:45-14:00', activity: '參觀好古園', link: '' },
+              { id: 7, time: '14:15-15:30', activity: '姬路市立美術館/書寫山圓教寺(選)', link: '' },
+              { id: 8, time: '15:30-16:00', activity: '姬路站購物 (piole姬路)', link: '' },
+              { id: 9, time: '16:30-17:30', activity: '返回大阪', link: '' },
+              { id: 10, time: '18:00', activity: '晚餐 (心齋橋/道頓堀)', link: '' }
+            ],
+            shopping: [{ id: 1, name: 'piole姬路', location: '姬路站購物中心' }],
+            food: { wishlist: [{id: 1, name: '穴子丼', checked: false}, {id: 2, name: '姬路關東煮', checked: false}], breakfast: '', lunch: '姬路站周邊', dinner: '大阪難波' },
+            notes: '姬路城+好古園聯票 ¥1,050。新幹線約30-40分(¥3800)，JR新快速約1小時20分(¥1520)。'
+          },
+          {
+            id: 7,
+            date: '2/14 (五)',
+            weather: 'sunny',
+            temperature: '5°C - 13°C',
+            transport: '南海電鐵 / CI173',
+            ticketType: 'Ticket',
+            accommodation: '溫暖的家',
+            schedule: [
+              { id: 1, time: '09:00', activity: 'Check-out 往機場方向移動', link: '' },
+              { id: 2, time: '10:00', activity: '寄放行李 (臨空城或機場)', link: '' },
+              { id: 3, time: '11:00', activity: '臨空城 Outlet (Rinku Premium Outlets)', link: '' },
+              { id: 4, time: '16:00', activity: '前往關西機場報到', link: '' },
+              { id: 5, time: '19:00-21:15', activity: 'CI173 起飛 -> 抵達台灣', link: '' }
+            ],
+            shopping: [{ id: 1, name: 'Rinku Premium Outlets', location: '關西機場旁' }],
+            food: { wishlist: [], breakfast: '', lunch: 'Outlet', dinner: '機上/機場' },
+            notes: '請確認好行李重量與登機時間。'
+          }
         ];
 
         function App() {
@@ -122,15 +222,15 @@
             const [activeDayId, setActiveDayId] = useState(1);
             const [isPreviewMode, setIsPreviewMode] = useState(false);
 
-            // 讀取存檔 (使用 v5 以區別之前的版本)
+            // 讀取存檔 (使用 v6 以區別之前的版本)
             useEffect(() => {
-                const savedData = localStorage.getItem('kyoto_trip_data_v5');
+                const savedData = localStorage.getItem('kyoto_trip_data_v6');
                 if (savedData) { try { setDays(JSON.parse(savedData)); } catch (e) { console.error(e); } }
             }, []);
 
             // 寫入存檔
             useEffect(() => {
-                localStorage.setItem('kyoto_trip_data_v5', JSON.stringify(days));
+                localStorage.setItem('kyoto_trip_data_v6', JSON.stringify(days));
             }, [days]);
 
             const activeDay = days.find(d => d.id === activeDayId) || days[0];
@@ -362,9 +462,7 @@
                                                                     <Icons.ExternalLink size={12} className="text-stone-400 flex-shrink-0" />
                                                                     <input value={item.link} onChange={(e) => {
                                                                         const newSchedule = day.schedule.map(s => s.id === item.id ? { ...s, link: e.target.value } : s);
-                                                                        // 修改連結不需要重排序，直接 setDays 比較效能好一點，但為了簡單統一用 updateSchedule 也可以
                                                                         const updatedSchedule = day.schedule.map(s => s.id === item.id ? { ...s, link: e.target.value } : s);
-                                                                        // 這裡不需要 sort，直接更新
                                                                          setDays(prev => prev.map(d => d.id === day.id ? { ...d, schedule: updatedSchedule } : d));
                                                                     }} className="text-xs text-blue-500 bg-transparent outline-none w-full placeholder-stone-300" placeholder="https://..." />
                                                                     {item.link && (
