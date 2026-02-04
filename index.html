@@ -91,7 +91,7 @@
                 { id: 3, name: 'GU/Uniqlo', location: '京都車站(Avanti)' }
             ],
             food: { wishlist: [{ id: 1, name: '京都車站美食', checked: false }], breakfast: '', lunch: '京都車站內', dinner: '飯店附近' },
-            notes: '抵達 T1 1樓大廳後，從 C 出口搭利木津巴士最快。素居旅舍距離清水寺步行約 10 分鐘。'
+            notes: '抵達 T1 1樓大廳後，從 C 出口搭利木津巴士最快。素居旅舍距離清水寺步行約 10 分鐘。\n\n【必備APP推薦】\n1. 交通：乘換案內 (Jorudan) 或 NAVITIME (鐵路轉乘/誤點資訊)\n2. 叫車：GO (長輩累了/行李多時救星)\n3. 天氣：tenki.jp (美山/戶外行程精準預報)\n4. 支付：PayPay (備用，現金/信用卡為主)'
           },
           {
             id: 2,
@@ -138,7 +138,7 @@
                 { id: 2, name: '松本清、大國藥妝', location: '河原町' }
             ],
             food: { wishlist: [], breakfast: '', lunch: '祇園/河原町', dinner: '河原町' },
-            notes: '⚠️老街、神社內禁止騎行，需牽車。腳踏車請停指定停車場。備案：若下雪或不騎車，改走清水寺→祇園→金閣寺→龍安寺路線。'
+            notes: '⚠️老街、神社內禁止騎行，需牽車。腳踏車請停指定停車場。\n清水寺、祇園人潮多，牽車可能比騎車快，要有運動量的心理準備。\n備案：若下雪或不騎車，改走清水寺→祇園→金閣寺→龍安寺路線。'
           },
           {
             id: 4,
@@ -157,7 +157,7 @@
             ],
             shopping: [],
             food: { wishlist: [], breakfast: '', lunch: '美山', dinner: '美山' },
-            notes: '建明租車 TEL:03-577-0858。'
+            notes: '建明租車 TEL:03-577-0858。\n【租車注意】\n1. 確認台灣駕照 + 日文譯本都在效期內。\n2. **務必確認車輛配備雪胎 (Snow Tires)**，美山2月有積雪可能。'
           },
           {
             id: 5,
@@ -177,7 +177,7 @@
             ],
             shopping: [],
             food: { wishlist: [], breakfast: '', lunch: '嵐山', dinner: '大阪' },
-            notes: '今日還車，記得檢查隨身物品。'
+            notes: '今日還車，記得檢查隨身物品。\n【行李移動】若全家行李塞不下車，建議Day 4先寄放京都車站，本日還車後再領取去大阪。'
           },
           {
             id: 6,
@@ -206,7 +206,7 @@
                 { id: 4, name: 'GU/Uniqlo', location: '心齋橋(旗艦店)' }
             ],
             food: { wishlist: [{id: 1, name: '穴子丼', checked: false}, {id: 2, name: '姬路關東煮', checked: false}], breakfast: '', lunch: '姬路站周邊', dinner: '大阪難波' },
-            notes: '姬路城+好古園聯票 ¥1,050。新幹線約30-40分(¥3800)，JR新快速約1小時20分(¥1520)。姬路城需要爬非常陡的木樓梯。'
+            notes: '姬路城+好古園聯票 ¥1,050。新幹線約30-40分(¥3800)，JR新快速約1小時20分(¥1520)。\n【注意】姬路城需爬非常陡的木樓梯(脫鞋)，膝蓋不好者建議斟酌，或在城下拍照即可。'
           },
           {
             id: 7,
@@ -234,15 +234,15 @@
             const [activeDayId, setActiveDayId] = useState(1);
             const [isPreviewMode, setIsPreviewMode] = useState(false);
 
-            // 讀取存檔 (使用 v9 以區別之前的版本，確保重新載入完整資料)
+            // 讀取存檔 (使用 v10 以區別之前的版本，確保重新載入完整資料)
             useEffect(() => {
-                const savedData = localStorage.getItem('kyoto_trip_data_v9');
+                const savedData = localStorage.getItem('kyoto_trip_data_v10');
                 if (savedData) { try { setDays(JSON.parse(savedData)); } catch (e) { console.error(e); } }
             }, []);
 
             // 寫入存檔
             useEffect(() => {
-                localStorage.setItem('kyoto_trip_data_v9', JSON.stringify(days));
+                localStorage.setItem('kyoto_trip_data_v10', JSON.stringify(days));
             }, [days]);
 
             const activeDay = days.find(d => d.id === activeDayId) || days[0];
