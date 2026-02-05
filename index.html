@@ -57,6 +57,7 @@
             /* 強制背景色列印 */
             .bg-dark-header { background-color: #111 !important; color: white !important; }
             .text-gold { color: #C5A059 !important; }
+            .bg-note-tag { background-color: #eff6ff !important; border: 1px solid #e0e7ff; } /* 強制列印小方塊背景 */
         }
     </style>
 </head>
@@ -250,9 +251,9 @@
             const [activeDayId, setActiveDayId] = useState(1);
             const [isPreviewMode, setIsPreviewMode] = useState(false); // 預設為編輯模式
 
-            // 讀取存檔 (使用 v18 確保相容性)
+            // 讀取存檔 (使用 v19 確保相容性)
             useEffect(() => {
-                const savedData = localStorage.getItem('kyoto_trip_data_v18');
+                const savedData = localStorage.getItem('kyoto_trip_data_v19');
                 if (savedData) {
                     try {
                         setDays(JSON.parse(savedData));
@@ -264,7 +265,7 @@
 
             // 寫入存檔
             useEffect(() => {
-                localStorage.setItem('kyoto_trip_data_v18', JSON.stringify(days));
+                localStorage.setItem('kyoto_trip_data_v19', JSON.stringify(days));
             }, [days]);
 
             const activeDay = days.find(d => d.id === activeDayId) || days[0];
@@ -464,14 +465,25 @@
                                                                 }
                                                             </div>
                                                             
-                                                            {/* Note & Transport Detail */}
-                                                            <div className="text-sm font-light text-gray-500">
+                                                            {/* Note Tag - Modified to look like a small block */}
+                                                            <div className="mt-1">
                                                                 {!isPreviewMode ? 
-                                                                    <input value={item.note || ''} onChange={e => {
-                                                                        const updated = day.schedule.map(s => s.id === item.id ? {...s, note: e.target.value} : s);
-                                                                        updateSchedule(day.id, updated);
-                                                                    }} className="bg-transparent w-full focus:outline-none text-xs text-gray-400" placeholder="交通/備註..." /> 
-                                                                    : item.note}
+                                                                    <textarea 
+                                                                        value={item.note || ''} 
+                                                                        onChange={e => {
+                                                                            const updated = day.schedule.map(s => s.id === item.id ? {...s, note: e.target.value} : s);
+                                                                            updateSchedule(day.id, updated);
+                                                                        }} 
+                                                                        className="w-full bg-gray-50 border border-gray-200 text-xs text-gray-600 rounded px-2 py-1.5 focus:outline-none focus:border-[#C5A059] resize-none" 
+                                                                        rows={2}
+                                                                        placeholder="交通/備註..." 
+                                                                    /> 
+                                                                    : (item.note && (
+                                                                        <div className="inline-block bg-indigo-50 border border-indigo-100 text-indigo-800 text-xs px-3 py-1.5 rounded-md leading-relaxed whitespace-pre-wrap break-words max-w-full bg-note-tag">
+                                                                            {item.note}
+                                                                        </div>
+                                                                    ))
+                                                                }
                                                             </div>
 
                                                             {/* Link Input (Edit Mode) */}
