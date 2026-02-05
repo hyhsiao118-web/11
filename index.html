@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE KYOTO COLLECTION</title>
+    <title>京都・大阪冬日旅</title>
     
     <!-- 載入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -15,7 +15,7 @@
     <!-- 載入 Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-    <!-- 載入 Google Fonts (Noto Serif & Sans) -->
+    <!-- 載入 Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Noto+Serif+TC:wght@400;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -67,7 +67,7 @@
     <script type="text/babel">
         const { useState, useEffect } = React;
 
-        // --- Icons (確保所有使用到的 Icon 都有定義) ---
+        // --- Icons ---
         const Icons = {
             Sun: () => <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>,
             Cloud: () => <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>,
@@ -76,12 +76,13 @@
             Plus: () => <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>,
             Trash: () => <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>,
             Link: () => <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>,
+            ExternalLink: () => <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>,
             Download: () => <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>,
             Eye: () => <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>,
             Calendar: () => <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
         };
 
-        // --- Data (包含詳細交通指引) ---
+        // --- Data ---
         const INITIAL_DAYS = [
           {
             id: 1,
@@ -220,7 +221,7 @@
                 { id: 4, name: 'GU/Uniqlo', location: '心齋橋(旗艦店)' }
             ],
             food: { wishlist: [{id: 1, name: '穴子丼', checked: false}, {id: 2, name: '姬路關東煮', checked: false}], breakfast: '', lunch: '姬路站周邊', dinner: '大阪難波' },
-            notes: '姬路城+好古園聯票 ¥1,050。去程建議搭新幹線省時(¥3800)，回程可搭JR新快速(¥1520)省錢。\n【注意】姬路城需爬非常陡的木樓梯(脫鞋)，膝蓋不好者建議斟酌。'
+            notes: '姬路城+好古園聯票 ¥1,050。去程建議搭新幹線省時(¥3800)，回程可搭JR新快速(¥1520)省錢。\n【注意】姬路城需爬非常陡的木樓梯(脫鞋)，膝蓋不好者建議斟酌，或在城下拍照即可。'
           },
           {
             id: 7,
@@ -249,15 +250,21 @@
             const [activeDayId, setActiveDayId] = useState(1);
             const [isPreviewMode, setIsPreviewMode] = useState(false); // 預設為編輯模式
 
-            // 讀取存檔 (使用 v14 以區別之前的版本，確保重新載入完整資料)
+            // 讀取存檔 (使用 v16 以區別之前的版本，確保重新載入完整資料)
             useEffect(() => {
-                const savedData = localStorage.getItem('kyoto_trip_data_v14');
-                if (savedData) { try { setDays(JSON.parse(savedData)); } catch (e) { console.error(e); } }
+                const savedData = localStorage.getItem('kyoto_trip_data_v16');
+                if (savedData) {
+                    try {
+                        setDays(JSON.parse(savedData));
+                    } catch (e) {
+                        console.error("Data load error:", e);
+                    }
+                }
             }, []);
 
             // 寫入存檔
             useEffect(() => {
-                localStorage.setItem('kyoto_trip_data_v14', JSON.stringify(days));
+                localStorage.setItem('kyoto_trip_data_v16', JSON.stringify(days));
             }, [days]);
 
             const activeDay = days.find(d => d.id === activeDayId) || days[0];
@@ -281,6 +288,11 @@
             // Helper to update food
             const updateFood = (dayId, newFood) => {
                 setDays(prev => prev.map(d => d.id === dayId ? { ...d, food: newFood } : d));
+            };
+
+            // Helper to update wishlist
+            const updateWishlist = (dayId, newWishlist) => {
+                setDays(prev => prev.map(d => d.id === dayId ? { ...d, food: { ...d.food, wishlist: newWishlist } } : d));
             };
 
             // Export Text
@@ -396,7 +408,7 @@
                                             <Icons.MapPin />
                                         </div>
                                         <div>
-                                            <div className="text-[10px] text-gray-400 font-bold tracking-widest uppercase">STAY</div>
+                                            <div className="text-[10px] text-gray-400 font-bold tracking-widest uppercase">住宿</div>
                                             <div className="text-sm font-serif-display font-bold text-gray-800">
                                                 {!isPreviewMode ? <input value={day.accommodation} onChange={e => updateDay('accommodation', e.target.value)} className="bg-transparent w-full focus:outline-none" /> : day.accommodation}
                                             </div>
@@ -410,7 +422,7 @@
                                     {/* Left: Itinerary Flow */}
                                     <div className="lg:col-span-2">
                                         <div className="flex justify-between items-center mb-8">
-                                            <h3 className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase">ITINERARY FLOW</h3>
+                                            <h3 className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase">行程路線</h3>
                                             {!isPreviewMode && (
                                                 <button onClick={() => updateSchedule(day.id, [...day.schedule, {id: Date.now(), time: '10:00', activity: '', note: ''}])} className="text-[#C5A059] hover:text-black transition-colors">
                                                     <Icons.Plus />
@@ -441,7 +453,7 @@
                                                                         updateSchedule(day.id, updated);
                                                                     }} className="bg-transparent w-full focus:outline-none border-b border-gray-100 focus:border-[#C5A059]" placeholder="行程內容" /> 
                                                                     : (item.link ? 
-                                                                        <a href={item.link} target="_blank" className="hover:text-[#C5A059] transition-colors border-b border-transparent hover:border-[#C5A059] pb-0.5">{item.activity}</a> 
+                                                                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="hover:text-[#C5A059] border-b-2 border-[#C5A059] transition-colors pb-0.5">{item.activity}</a> 
                                                                         : item.activity)
                                                                 }
                                                             </div>
@@ -464,6 +476,14 @@
                                                                         const updated = day.schedule.map(s => s.id === item.id ? {...s, link: e.target.value} : s);
                                                                         updateSchedule(day.id, updated);
                                                                     }} className="text-xs text-gray-400 bg-transparent w-full focus:outline-none" placeholder="http://" />
+                                                                    
+                                                                    {/* Test Link Button */}
+                                                                    {item.link && (
+                                                                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#C5A059] transition-colors">
+                                                                            <Icons.ExternalLink />
+                                                                        </a>
+                                                                    )}
+
                                                                     <button onClick={() => updateSchedule(day.id, day.schedule.filter(s => s.id !== item.id))} className="text-gray-300 hover:text-red-400"><Icons.Trash /></button>
                                                                 </div>
                                                             )}
@@ -480,7 +500,7 @@
                                         {/* Shopping */}
                                         <div>
                                             <div className="flex justify-between items-center mb-6 border-b border-gray-100 pb-2">
-                                                <h3 className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase">CURATED STORES</h3>
+                                                <h3 className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase">精選店家</h3>
                                                 {!isPreviewMode && (
                                                     <button onClick={() => updateShopping(day.id, [...day.shopping, {id: Date.now(), name: '', location: ''}])} className="text-[#C5A059]">
                                                         <Icons.Plus />
@@ -515,12 +535,14 @@
 
                                         {/* Dining & Notes */}
                                         <div>
-                                            <h3 className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase mb-6 border-b border-gray-100 pb-2">DINING & NOTES</h3>
+                                            <h3 className="text-xs font-bold tracking-[0.2em] text-gray-400 uppercase mb-6 border-b border-gray-100 pb-2">美食筆記</h3>
                                             
                                             <div className="space-y-4 mb-8">
                                                 {['breakfast', 'lunch', 'dinner'].map(meal => (
                                                     <div key={meal} className="flex gap-4 text-sm">
-                                                        <span className="text-[#C5A059] uppercase text-xs font-bold w-16 pt-1 tracking-wider">{meal}</span>
+                                                        <span className="text-[#C5A059] uppercase text-xs font-bold w-12 pt-1 tracking-wider">
+                                                            {meal === 'breakfast' ? '早餐' : meal === 'lunch' ? '午餐' : '晚餐'}
+                                                        </span>
                                                         <div className="text-gray-700 font-medium flex-grow border-b border-gray-100 pb-1">
                                                             {!isPreviewMode ? 
                                                                 <input value={day.food[meal]} onChange={e => updateFood(day.id, {...day.food, [meal]: e.target.value})} className="bg-transparent w-full focus:outline-none" /> 
@@ -530,9 +552,41 @@
                                                 ))}
                                             </div>
 
+                                            {/* Wishlist Section */}
+                                            <div className="mb-8">
+                                                <div className="flex justify-between items-center mb-3">
+                                                    <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">想吃清單</h4>
+                                                    {!isPreviewMode && (
+                                                        <button onClick={() => updateWishlist(day.id, [...day.food.wishlist, {id: Date.now(), name: '', checked: false}])} className="text-[#C5A059]">
+                                                            <Icons.Plus />
+                                                        </button>
+                                                    )}
+                                                </div>
+                                                <div className="space-y-2">
+                                                    {day.food.wishlist.map(item => (
+                                                        <div key={item.id} className="flex items-center gap-2 text-sm group">
+                                                            <input type="checkbox" checked={item.checked} onChange={e => {
+                                                                const updated = day.food.wishlist.map(w => w.id === item.id ? {...w, checked: e.target.checked} : w);
+                                                                updateWishlist(day.id, updated);
+                                                            }} className="accent-[#C5A059]" />
+                                                            
+                                                            {!isPreviewMode ? 
+                                                                <input value={item.name} onChange={e => {
+                                                                    const updated = day.food.wishlist.map(w => w.id === item.id ? {...w, name: e.target.value} : w);
+                                                                    updateWishlist(day.id, updated);
+                                                                }} className={`bg-transparent w-full focus:outline-none ${item.checked ? 'line-through text-gray-300' : 'text-gray-700'}`} placeholder="想吃的小吃..." />
+                                                                : <span className={`${item.checked ? 'line-through text-gray-300' : 'text-gray-700'}`}>{item.name}</span>
+                                                            }
+                                                            
+                                                            {!isPreviewMode && <button onClick={() => updateWishlist(day.id, day.food.wishlist.filter(w => w.id !== item.id))} className="opacity-0 group-hover:opacity-100 text-gray-300 hover:text-red-400"><Icons.Trash /></button>}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+
                                             {/* Notes Block */}
                                             <div className="bg-gray-50 p-6 rounded-sm border-l-4 border-gray-200">
-                                                <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">MEMO</h4>
+                                                <h4 className="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-3">備註 & 提醒</h4>
                                                 {!isPreviewMode ? 
                                                     <textarea value={day.notes} onChange={e => updateDay('notes', e.target.value)} className="w-full bg-transparent text-sm text-gray-600 leading-relaxed focus:outline-none resize-none h-48" /> 
                                                     : <p className="text-sm text-gray-600 leading-relaxed whitespace-pre-wrap font-light">{day.notes}</p>
