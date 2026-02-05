@@ -57,7 +57,7 @@
             /* 強制背景色列印 */
             .bg-dark-header { background-color: #111 !important; color: white !important; }
             .text-gold { color: #C5A059 !important; }
-            .bg-note-tag { background-color: #eff6ff !important; border: 1px solid #e0e7ff; } /* 強制列印小方塊背景 */
+            .bg-note-tag { background-color: #eff6ff !important; border: 1px solid #e0e7ff; }
         }
     </style>
 </head>
@@ -97,7 +97,7 @@
               { id: 1, time: '05:00', activity: '派車接送 (前往機場)', link: '', note: '專車接送至桃機 T2' },
               { id: 2, time: '08:05-11:35', activity: 'CI156 起飛 (T2) -> 抵達 關西 T1', link: '', note: '飛行時間約 2.5 小時' },
               { id: 3, time: '13:00', activity: '利木津巴士往京都車站', link: '', note: 'T1 1F 8號月台購票/上車 (約85分)' },
-              { id: 4, time: '14:30', activity: '京都車站用餐', link: '', note: '推薦: 10F 拉麵小路' },
+              { id: 4, time: '14:30', activity: '京都車站用餐', link: '', note: '推薦: 10F 拉麵小路 / 地下街' },
               { id: 5, time: '15:30', activity: '前往飯店 Check-in', link: 'https://guesthousesoi.com/what-we-provide-tw/', note: '公車206號(D2月台)至「馬町」下車' },
               { id: 6, time: '16:30', activity: '清水寺周邊散步', link: '', note: '步行前往 (約10分鐘)' }
             ],
@@ -106,7 +106,16 @@
                 { id: 2, name: 'Bic Camera', location: 'JR京都站西洞院口' },
                 { id: 3, name: 'GU/Uniqlo', location: '京都Avanti' }
             ],
-            food: { wishlist: [{ id: 1, name: '京都車站美食', checked: false }], breakfast: '', lunch: '京都車站內', dinner: '飯店附近' },
+            food: { 
+                wishlist: [
+                    { id: 1, name: '東洋亭 (漢堡排/百年布丁)', checked: false },
+                    { id: 2, name: '名代豬排 (炸豬排定食)', checked: false },
+                    { id: 3, name: '551 HORAI 蓬萊 (豬肉包)', checked: false }
+                ], 
+                breakfast: '', 
+                lunch: '拉麵小路/車站內', 
+                dinner: '東洋亭 / 名代豬排' 
+            },
             notes: '京都車站往素居旅舍交通：\n1. 公車 (最省)：從「烏丸口」D2月台搭市營206號 (往東山通方向)，於「馬町 (Umamachi)」站下車，往回走2分鐘。\n2. 計程車 (推薦)：若行李多，建議直接搭車 (約15分/¥1500)。\n\n【必備APP推薦】\n1. 交通：乘換案內 (Jorudan) 或 NAVITIME (鐵路轉乘/誤點資訊)\n2. 叫車：GO (長輩累了/行李多時救星)\n3. 天氣：tenki.jp (美山/戶外行程精準預報)\n4. 支付：PayPay (備用，現金/信用卡為主)'
           },
           {
@@ -126,7 +135,7 @@
               { id: 6, time: '17:30', activity: '返回京都', link: '', note: '京阪: 宇治→中書島→清水五條' }
             ],
             shopping: [],
-            food: { wishlist: [{ id: 1, name: '中村藤吉', checked: false }], breakfast: '', lunch: '伏見桃山', dinner: '京都' },
+            food: { wishlist: [{ id: 1, name: '中村藤吉 (抹茶)', checked: false }], breakfast: '', lunch: '伏見桃山', dinner: '京都' },
             notes: '本日使用 IC Card (西瓜卡/ICOCA) 最方便。\n伏見桃山到宇治需在「中書島」站轉乘京阪宇治線。'
           },
           {
@@ -153,8 +162,18 @@
                 { id: 1, name: '唐吉訶德', location: '河原町' },
                 { id: 2, name: '松本清、大國藥妝', location: '河原町' }
             ],
-            food: { wishlist: [], breakfast: '', lunch: '祇園/河原町', dinner: '河原町' },
-            notes: '⚠️老街、神社內禁止騎行，需牽車。腳踏車請停指定停車場。\n清水寺、祇園人潮多，牽車可能比騎車快，要有運動量的心理準備。\n備案：若下雪或不騎車，改走清水寺→祇園→金閣寺→龍安寺路線。'
+            food: { 
+                wishlist: [
+                    { id: 1, name: '京都勝牛 (炸牛排)', checked: false },
+                    { id: 2, name: '祇園萬屋 (九條蔥烏龍)', checked: false },
+                    { id: 3, name: '鳴門鯛燒本舖 (地瓜)', checked: false },
+                    { id: 4, name: 'Koe Donuts (甜甜圈)', checked: false }
+                ], 
+                breakfast: '', 
+                lunch: '京都勝牛 / 祇園萬屋', 
+                dinner: '河原町周邊' 
+            },
+            notes: '【美食提醒】晚餐時段 (18:00-19:00) 是尖峰，建議先去抽號碼牌。\n⚠️老街、神社內禁止騎行，需牽車。腳踏車請停指定停車場。'
           },
           {
             id: 4,
@@ -174,7 +193,7 @@
             ],
             shopping: [],
             food: { wishlist: [], breakfast: '', lunch: '美山', dinner: '美山民宿' },
-            notes: '建明租車 TEL:03-577-0858。\n【租車注意】\n1. 確認台灣駕照 + 日文譯本都在效期內。\n2. **務必確認車輛配備雪胎 (Snow Tires)**，美山2月有積雪可能，國道162號為山路請小心駕駛。'
+            notes: '建明租車 TEL:03-577-0858。\n【租車注意】\n1. 確認台灣駕照 + 日文譯本都在效期內。\n2. **務必確認車輛配備雪胎 (Snow Tires)**，美山2月有積雪可能。'
           },
           {
             id: 5,
@@ -221,8 +240,19 @@
                 { id: 3, name: '唐吉訶德(摩天輪)', location: '道頓堀' },
                 { id: 4, name: 'GU/Uniqlo', location: '心齋橋(旗艦店)' }
             ],
-            food: { wishlist: [{id: 1, name: '穴子丼', checked: false}, {id: 2, name: '姬路關東煮', checked: false}], breakfast: '', lunch: '姬路站周邊', dinner: '大阪難波' },
-            notes: '姬路城+好古園聯票 ¥1,050。去程建議搭新幹線省時(¥3800)，回程可搭JR新快速(¥1520)省錢。\n【注意】姬路城需爬非常陡的木樓梯(脫鞋)，膝蓋不好者建議斟酌，或在城下拍照即可。'
+            food: { 
+                wishlist: [
+                    {id: 1, name: '穴子丼 (午)', checked: false}, 
+                    {id: 2, name: '姬路關東煮 (午)', checked: false},
+                    {id: 3, name: '北極星蛋包飯', checked: false},
+                    {id: 4, name: '千房大阪燒', checked: false},
+                    {id: 5, name: '本家大章魚', checked: false}
+                ], 
+                breakfast: '', 
+                lunch: '姬路站周邊', 
+                dinner: '北極星 / 千房大阪燒' 
+            },
+            notes: '【必吃推薦】北極星：日式老屋環境安靜，適合長輩。千房：有人幫做，輕鬆吃大阪燒。\n\n【注意】姬路城需爬非常陡的木樓梯(脫鞋)，膝蓋不好者建議斟酌。晚餐尖峰建議先登記候位。'
           },
           {
             id: 7,
@@ -241,8 +271,17 @@
               { id: 6, time: '21:15', activity: '抵達台灣', link: '', note: '桃園機場' }
             ],
             shopping: [{ id: 1, name: 'Rinku Premium Outlets', location: '關西機場旁' }],
-            food: { wishlist: [], breakfast: '', lunch: 'Outlet美食街', dinner: '機上/機場' },
-            notes: '請務必預留時間退稅與前往機場。臨空城到機場僅需約 6 分鐘車程。'
+            food: { 
+                wishlist: [
+                    {id: 1, name: 'Kua`Aina (酪梨漢堡)', checked: false},
+                    {id: 2, name: '三田屋本店 (牛排)', checked: false},
+                    {id: 3, name: 'Panda Express', checked: false}
+                ], 
+                breakfast: '', 
+                lunch: 'Kua`Aina / 三田屋', 
+                dinner: '機上/機場' 
+            },
+            notes: '午餐推薦：Kua`Aina漢堡多汁、三田屋牛排香氣足。二樓美食街選擇多。\n請務必預留時間退稅與前往機場。臨空城到機場僅需約 6 分鐘車程。'
           }
         ];
 
@@ -251,9 +290,9 @@
             const [activeDayId, setActiveDayId] = useState(1);
             const [isPreviewMode, setIsPreviewMode] = useState(false); // 預設為編輯模式
 
-            // 讀取存檔 (使用 v19 確保相容性)
+            // 讀取存檔 (使用 v21 確保相容性)
             useEffect(() => {
-                const savedData = localStorage.getItem('kyoto_trip_data_v19');
+                const savedData = localStorage.getItem('kyoto_trip_data_v21');
                 if (savedData) {
                     try {
                         setDays(JSON.parse(savedData));
@@ -265,7 +304,7 @@
 
             // 寫入存檔
             useEffect(() => {
-                localStorage.setItem('kyoto_trip_data_v19', JSON.stringify(days));
+                localStorage.setItem('kyoto_trip_data_v21', JSON.stringify(days));
             }, [days]);
 
             const activeDay = days.find(d => d.id === activeDayId) || days[0];
@@ -295,6 +334,26 @@
             const updateWishlist = (dayId, newWishlist) => {
                 setDays(prev => prev.map(d => d.id === dayId ? { ...d, food: { ...d.food, wishlist: newWishlist } } : d));
             };
+
+            // Time rendering helper
+            const renderTime = (timeStr) => {
+                if (!timeStr) return null;
+                // Check for standard hyphen range
+                if (timeStr.includes('-')) {
+                    const parts = timeStr.split('-');
+                    if (parts.length === 2) {
+                         return (
+                            <div className="flex flex-col items-center leading-none">
+                                <span className="whitespace-nowrap">{parts[0].trim()}</span>
+                                <span className="text-[10px] my-0.5 text-[#C5A059] opacity-60">↓</span>
+                                <span className="whitespace-nowrap">{parts[1].trim()}</span>
+                            </div>
+                        );
+                    }
+                }
+                // Return standard time
+                return <span className="whitespace-nowrap">{timeStr}</span>;
+            }
 
             // Export Text
             const handleExportText = () => {
@@ -438,7 +497,7 @@
                                                     <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-white border border-[#C5A059] transform rotate-45"></div>
                                                     
                                                     <div className="flex gap-6 items-baseline">
-                                                        <div className="w-28 md:w-32 flex-shrink-0 text-sm font-serif-display font-bold text-[#C5A059] opacity-80 whitespace-pre-wrap">
+                                                        <div className="w-14 md:w-16 flex-shrink-0 text-sm font-serif-display font-bold text-[#C5A059] opacity-80 flex justify-center items-start pt-1">
                                                             {!isPreviewMode ? 
                                                                 <textarea 
                                                                     value={item.time} 
@@ -446,11 +505,12 @@
                                                                         const updated = day.schedule.map(s => s.id === item.id ? {...s, time: e.target.value} : s);
                                                                         updateSchedule(day.id, updated);
                                                                     }} 
-                                                                    className="bg-transparent w-full focus:outline-none resize-none border border-transparent hover:border-indigo-100 rounded p-1" 
-                                                                    rows={3}
+                                                                    className="bg-transparent w-full focus:outline-none resize-none border border-transparent hover:border-indigo-100 rounded p-1 text-center" 
+                                                                    rows={2}
                                                                     placeholder="00:00"
                                                                 /> 
-                                                                : item.time}
+                                                                : renderTime(item.time)
+                                                            }
                                                         </div>
                                                         <div className="flex-grow">
                                                             <div className="text-base font-bold text-gray-800 tracking-wide mb-1">
