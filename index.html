@@ -250,9 +250,9 @@
             const [activeDayId, setActiveDayId] = useState(1);
             const [isPreviewMode, setIsPreviewMode] = useState(false); // 預設為編輯模式
 
-            // 讀取存檔 (使用 v17 確保相容性)
+            // 讀取存檔 (使用 v18 確保相容性)
             useEffect(() => {
-                const savedData = localStorage.getItem('kyoto_trip_data_v17');
+                const savedData = localStorage.getItem('kyoto_trip_data_v18');
                 if (savedData) {
                     try {
                         setDays(JSON.parse(savedData));
@@ -264,7 +264,7 @@
 
             // 寫入存檔
             useEffect(() => {
-                localStorage.setItem('kyoto_trip_data_v17', JSON.stringify(days));
+                localStorage.setItem('kyoto_trip_data_v18', JSON.stringify(days));
             }, [days]);
 
             const activeDay = days.find(d => d.id === activeDayId) || days[0];
@@ -437,7 +437,7 @@
                                                     <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 bg-white border border-[#C5A059] transform rotate-45"></div>
                                                     
                                                     <div className="flex gap-6 items-baseline">
-                                                        <div className="w-20 sm:w-24 flex-shrink-0 text-sm font-serif-display font-bold text-[#C5A059] opacity-80 break-all">
+                                                        <div className="w-28 md:w-32 flex-shrink-0 text-sm font-serif-display font-bold text-[#C5A059] opacity-80 whitespace-pre-wrap">
                                                             {!isPreviewMode ? 
                                                                 <textarea 
                                                                     value={item.time} 
@@ -445,8 +445,8 @@
                                                                         const updated = day.schedule.map(s => s.id === item.id ? {...s, time: e.target.value} : s);
                                                                         updateSchedule(day.id, updated);
                                                                     }} 
-                                                                    className="bg-transparent w-full focus:outline-none resize-none overflow-hidden" 
-                                                                    rows={2}
+                                                                    className="bg-transparent w-full focus:outline-none resize-none border border-transparent hover:border-indigo-100 rounded p-1" 
+                                                                    rows={3}
                                                                     placeholder="00:00"
                                                                 /> 
                                                                 : item.time}
